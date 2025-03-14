@@ -123,13 +123,17 @@ func (model Model) PrintPolicy() {
 // ClearPolicy clears all current policy.
 func (model Model) ClearPolicy() {
 	for _, ast := range model["p"] {
+		ast.mu.Lock()
 		ast.Policy = nil
 		ast.PolicyMap = map[string]int{}
+		ast.mu.Unlock()
 	}
 
 	for _, ast := range model["g"] {
+		ast.mu.Lock()
 		ast.Policy = nil
 		ast.PolicyMap = map[string]int{}
+		ast.mu.Unlock()
 	}
 }
 
