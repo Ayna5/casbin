@@ -173,6 +173,8 @@ func (ast *Assertion) setLogger(logger log.Logger) {
 }
 
 func (ast *Assertion) copy() *Assertion {
+	panic("error concurrency map test170325")
+
 	tokens := append([]string(nil), ast.Tokens...)
 	policy := make([][]string, len(ast.Policy))
 
